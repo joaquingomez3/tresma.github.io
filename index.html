@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TresMa</title>
+
+    <script
+      src="https://kit.fontawesome.com/16a025091f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="estiloIndex.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container__menu">
+        <div class="logo">
+          <img src="LogoTM.png" alt="" />
+        </div>
+        <div class="menu">
+          <i class="fa-solid fa-bars" id="btn_menu"></i>
+          <div id="back_menu"></div>
+          <nav id="nav">
+            <img src="LogoTM.png" alt="" />
+            <ul>
+              <li><a href="index.html" id="selected">INICIO</a></li>
+              <li><a href="paginaSecundaria.html">PRECIOS</a></li>
+              <li><a href="paginaTercearia.html">CONTACTO</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div calss="caruosel">
+      <div class="carousel-inner">
+        <img src="imagenes/foto1.jpeg" id="foto" />
+      </div>
+      <br />
+      <input class="atrasboton" type="button" value="<<" onclick="atras()" />
+      <input
+        class="adelanteboton"
+        type="button"
+        value=">>"
+        onclick="adelante()"
+      />
+    </div>
+    <div class="flexdatos">
+      <div class="datos">
+        <img src="imagenesinfo/file3.jpg" alt="" />
+        <div class="contenido">
+          <h3>Nosotros</h3>
+          <p>
+            Bienvenidos a nuestro local de productos de limpieza(TresMa), donde
+            encontrarás todo lo que necesitas para mantener tu hogar impecable.
+            Contamos con una amplia variedad de productos de alta calidad,
+            diseñados para facilitar tus tareas de limpieza diaria. ¡Ven a
+            visitarnos y descubre cómo hacer de la limpieza algo fácil y
+            efectivo!
+          </p>
+        </div>
+      </div>
+      <div class="datos">
+        <img src="imagenesinfo/file.jpg" alt="" />
+        <div class="contenido">
+          <h3>Delivery</h3>
+          <p>
+            ¡No te preocupes por venir a nuestro local! También ofrecemos
+            servicio de delivery (2664-158243) para que puedas recibir los
+            productos de limpieza que necesitas en la comodidad de tu hogar.
+            Solo haz tu pedido y nosotros nos encargaremos de llevarlo hasta tu
+            puerta. ¡Así de fácil y conveniente! ¡Confía en nosotros para
+            facilitarte la vida y mantener tu hogar limpio y reluciente!
+          </p>
+        </div>
+      </div>
+      <div class="datos">
+        <img src="imagenesinfo/file1.jpg" alt="" />
+        <div class="contenido">
+          <h3>Medios De Pago</h3>
+          <p>
+            Aceptamos diferentes medios de pago para tu conveniencia. Puedes
+            pagar en efectivo, con tarjeta de crédito o débito y Mercado Pago en
+            nuestro local. ¡Así que no hay excusas para no tener tus productos
+            de limpieza favoritos a tu disposición! ¡Ven y descubre la variedad
+            de opciones de pago que tenemos disponibles para ti!
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("btn_menu")
+        .addEventListener("click", mostrar_menu);
+
+      document
+        .getElementById("back_menu")
+        .addEventListener("click", ocultar_menu);
+
+      nav = document.getElementById("nav");
+      background_menu = document.getElementById("back_menu");
+
+      function mostrar_menu() {
+        nav.style.right = "0px";
+        background_menu.style.display = "block";
+      }
+
+      function ocultar_menu() {
+        nav.style.right = "-250px";
+        background_menu.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

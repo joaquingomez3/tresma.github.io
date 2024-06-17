@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TresMa</title>
+
+    <script
+      src="https://kit.fontawesome.com/16a025091f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="estiloterceario.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container__menu">
+        <div class="logo">
+          <img src="LogoTM.png" alt="" />
+        </div>
+        <div class="menu">
+          <i class="fa-solid fa-bars" id="btn_menu"></i>
+          <div id="back_menu"></div>
+          <nav id="nav">
+            <img src="LogoTM.png" alt="" />
+            <ul>
+              <li><a href="index.html" id="selected">INICIO</a></li>
+              <li><a href="paginaSecundaria.html">PRECIOS</a></li>
+              <li><a href="paginaTercearia.html">CONTACTO</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex">
+      <div class="form-container">
+        <h1 id="titulo">HACE TU PEDIDO!</h1>
+        <form
+          action="contact.php"
+          method="post"
+          id="form"
+          onsubmit="return validar()"
+        >
+          <label>NOMBRE:</label>
+          <input type="text" id="nombre" name="nombre" /><br />
+          <label>TELEFONO:</label>
+          <input type="tel" id="tel" name="telefono" /><br />
+          <div class="puntos">
+            <input type="radio" id="domicilio" name="radio" />
+            <label id="color1">Envio a Domicilio</label>
+            <input type="radio" id="local" name="radio" />
+            <label id="color1">Retiro en el Local</label><br />
+          </div>
+          <label>DIRRECION:</label>
+          <input type="text" id="dire" name="direccion" /><br />
+          <label>HACE TU PEDIDO:</label>
+          <textarea id="pedido" name="pedido"></textarea><br />
+          <button type="submit">enviar</button>
+        </form>
+      </div>
+      <div class="mensajes">
+        <h1>Hola! ingresa tus datos y tu pedido</h1>
+        <ul id="ltaErrores"></ul>
+        <ol id="ltaMensajes"></ol>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("btn_menu")
+        .addEventListener("click", mostrar_menu);
+
+      document
+        .getElementById("back_menu")
+        .addEventListener("click", ocultar_menu);
+
+      nav = document.getElementById("nav");
+      background_menu = document.getElementById("back_menu");
+
+      function mostrar_menu() {
+        nav.style.right = "0px";
+        background_menu.style.display = "block";
+      }
+
+      function ocultar_menu() {
+        nav.style.right = "-250px";
+        background_menu.style.display = "none";
+      }
+    </script>
+    <script>
+      let nombre = document.getElementById("nombre");
+      let tel = document.getElementById("tel");
+      let pedido = document.getElementById("pedido");
+      let dire = document.getElementById("dire");
+      let ltaErrores = document.getElementById("ltaErrores");
+      let ltaMensajes = document.getElementById("ltaMensajes");
+      function validar() {
+        ltaErrores.innerHTML = "";
+        ltaMensajes.innerHTML = "";
+        nombre.classList.remove("error");
+        tel.classList.remove("error");
+        pedido.classList.remove("error");
+        dire.classList.remove("error");
+        let errores = [];
+        let regex_tel = /^[1-9]\d{9}$/;
+        let nbre = nombre.value.trim();
+        let domi = dire.value.trim();
+        if (nbre.length == 0) {
+          errores.push("Falta el nombre");
+          nombre.classList.add("error");
+        } else if (nbre.length > 9) {
+          errores.push("Nombre muy largo (9 caracteres)");
+          nombre.classList.add("error");
+        }
+        if (tel.value.length > 10) {
+          errores.push("Teléfono muy largo (10 dígitos)");
+          tel.classList.add("error");
+        }
+        if (!regex_tel.test(tel.value)) {
+          errores.push(
+            "Teléfono inválido (10 dígitos, no puede empezar con cero)"
+          );
+          tel.classList.add("error");
+        } else if (tel.value.length < 0) {
+          errores.push("Ingrese numero de telefono");
+          tel.classList.add("error");
+        }
+        if (pedido.value.length == 0) {
+          errores.push(
+            "Falta escribir tu pedido, ingresalo asi te lo llevamos"
+          );
+          pedido.classList.add("error");
+        } else if (pedido.value.length > 100) {
+          errores.push("Pedido muy largo (maximo 100 caracteres)");
+          pedido.classList.add("error");
+        }
+        if (document.getElementById("domicilio").checked) {
+          if (domi.length == 0) {
+            errores.push("Falta el domicilio");
+            dire.classList.add("error");
+          } else if (domi.length > 100) {
+            errores.push("Domicilio muy largo");
+            dire.classList.add("error");
+          }
+        } else {
+          if (
+            !document.getElementById("domicilio").checked &&
+            !document.getElementById("local").checked
+          ) {
+            errores.push("Seleccione un envio");
+          }
+        }
+        for (let err of errores) {
+          let li = document.createElement("li");
+          li.innerHTML = err;
+          ltaErrores.appendChild(li);
+        }
+        if (errores.length == 0) {
+          let li = document.createElement("li");
+          if (tel.value.length > 0) {
+            li.innerHTML = `Hola ${nbre} , te contactaremos al ${tel.value} para confirmar su pedido (${pedido.value}). Muchas gracias por su compra!`;
+          } else {
+            li.innerHTML = `Hola ${nbre}, su pedido es ${pedido.value} `;
+          }
+          ltaMensajes.appendChild(li);
+          document.forms[0].reset();
+
+          return false; //return true;//false para no enviar el form
+        } else {
+          return false; //si hubo errores cancelar el envío
+        }
+      }
+    </script>
+  </body>
+</html>

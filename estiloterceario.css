@@ -1,0 +1,259 @@
+*{
+  
+  
+  box-sizing: border-box;
+  
+}
+
+/* Estilos para pantallas medianas (tabletas) */
+@media screen and (max-width:1200px){
+
+  header{
+      padding: 40px;
+  }
+
+}
+
+@media screen and (max-width: 720px){
+
+  .menu nav{
+      position: fixed;
+      top: 0;
+      right: -250px;
+      background:  rgb(66, 106, 238);
+      width: 250px;
+      height: 100vh;
+      padding: 40px;
+      z-index: 1;
+      transition: all 300ms;
+  }
+
+  .menu ul{
+      flex-direction: column;
+      margin-top: 40px;
+  }
+
+  .menu ul li{
+      margin-top: 30px;
+      margin-left: 0;
+  }
+
+  .menu ul li a{
+      color: #bebebe;
+  }
+
+  #selected{
+      background: none;
+      padding: 0px;
+      border-radius: none;
+      color: black;
+  }
+
+  .menu nav img{
+      display: block;
+      width: 60px;
+  }
+
+  #back_menu{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0,0,0,0.5);
+      display: none;
+  }
+
+  .menu #btn_menu{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background:rgb(66, 106, 238);
+      font-size: 24px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 300ms;
+  }
+
+  .menu #btn_menu:hover{
+      background: red;
+  }
+  #foto {
+    width: 10px;
+    height: 50px;
+    
+  }
+  .flex{
+    display: grid;
+   }
+   .form-container{
+    background-color: rgb(66, 106, 238);
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 15px;
+    display: grid;
+  }
+}
+
+header{
+  width: 100%;
+  height: 80px;
+  margin-top: 40px;
+  position: fixed;
+  z-index: 1;
+  background-color:  rgba(255, 255, 255, 0.5);
+}
+
+.container__menu{
+  max-width: 1200px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img{
+  width: 180px;
+
+}
+
+.menu{
+  display: flex;
+  align-items: center;
+}
+
+.menu ul{
+  display: flex;
+}
+
+.menu ul li{
+  list-style: none;
+  margin-left: 36px;
+}
+
+.menu ul li a{
+  text-decoration: none;
+  font-size: 16px;
+  color:black;
+  text-transform: uppercase;
+}
+.menu ul li a:hover{
+  background: #F6615D;
+  padding: 10px 40px;
+  border-radius: 50px;
+}
+
+#selected{
+  background: #F6615D;
+  padding: 10px 40px;
+  border-radius: 50px;
+}
+
+.menu nav img{
+  display: none;
+}
+  
+
+  .form-container{
+    background-color: rgb(66, 106, 238);
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 15px;
+    display: grid;
+  }
+  .form-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .form-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .form-container input[type="text"],
+  .form-container input[type="tel"],
+  .form-container textarea,
+  .form-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .form-container textarea{
+    width: 300px;
+    height: 91px;
+  }
+  .form-container input[type="text"]:focus,
+  .form-container input[type="tel"]:focus,
+  .form-container textarea:focus {
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  }
+
+  .form-container button[type="submit"] {
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+  }
+
+  .form-container button[type="submit"]:hover {
+    background-color:  rgb(223, 36, 36);
+    color: white;
+  }
+
+  .error {
+    border: 2px solid red;
+    
+   }
+   .flex{
+    display: flex;
+   }
+   .mensajes ul{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: red;
+   }
+   .mensajes ol{
+    color:rgb(66, 106, 238);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    ;
+    font-size: x-large;
+   }
+   .mensajes h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: underline;
+    margin: 40px;
+    color:rgb(66, 106, 238) ;
+   }
+  
+   .puntos{
+    display: flex; 
+    justify-content: space-between;
+    margin-bottom: 10px;
+   }
+   
+ 
